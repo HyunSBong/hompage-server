@@ -1,34 +1,39 @@
-const Sequelize = require('sequelize');
+const Sequelize = require("sequelize");
 
 module.exports = class File extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
-        file_type: { // 확장자명
+        file_type: {
+          // 확장자명
           type: Sequelize.STRING(45),
-          allowNull: true
+          allowNull: true,
         },
-        url: { // 파일 경로
-          type: Sequelize.STRING(100),
-          allowNull: true
-        },
-        original_url: { // 파일 경로
-          type: Sequelize.STRING(100),
-          allowNull: true
-        },
-        description: { // 파일 설명
+        url: {
+          // 파일 경로
           type: Sequelize.TEXT,
-          allowNull: true
+          allowNull: true,
         },
-      }, {
+        original_url: {
+          // 파일 경로
+          type: Sequelize.TEXT,
+          allowNull: true,
+        },
+        description: {
+          // 파일 설명
+          type: Sequelize.TEXT,
+          allowNull: true,
+        },
+      },
+      {
         sequelize,
         modelName: "File",
-        tableName: 'files',
+        tableName: "files",
         timestamps: true,
         underscored: true,
         paranoid: false,
         charset: "utf8mb4",
-        collate: "utf8mb4_unicode_ci"
+        collate: "utf8mb4_unicode_ci",
       }
     );
   }
